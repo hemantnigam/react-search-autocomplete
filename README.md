@@ -1,1 +1,1 @@
-# react-autocomplete
+# React Search Autocomplete
