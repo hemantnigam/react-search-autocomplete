@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function SearchAutocomplete({ options }) {
+function ReactSearchAutocomplete({ options }) {
   const { data } = options;
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([]);
@@ -46,4 +46,4 @@ function SearchAutocomplete({ options }) {
   );
 }
 
-export default SearchAutocomplete;
+export default ReactSearchAutocomplete;
