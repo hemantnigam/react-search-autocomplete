@@ -1,7 +1,7 @@
 {
   "name": "react-search-autocomplete",
   "version": "1.0.0",
-  "description": "",
+  "description": "React search autocomplete is a react package having more search feature and easily customizable.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,8 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/hemantnigam/react-autocomplete.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "search",
+    "autocomplete",
+    "npm",
+    "package"
+  ],
+  "author": "Hemant Nigam <h.nigam654@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hemantnigam/react-autocomplete/issues"
