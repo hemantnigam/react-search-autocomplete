@@ -1,8 +1,8 @@
 {
   "name": "@hemantnigam/react-search-autocomplete",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React search autocomplete is a react package having more search feature and easily customizable.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "private": false,
   "scripts": {
     "build": "webpack"
