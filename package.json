@@ -1,6 +1,6 @@
 {
   "name": "@hemantnigam/react-search-autocomplete",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "React search autocomplete is a react package having more search feature and easily customizable.",
   "main": "index.js",
   "private": false,
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/hemantnigam/react-autocomplete#readme",
   "dependencies": {
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

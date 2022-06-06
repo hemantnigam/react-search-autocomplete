@@ -1,12 +1,14 @@
 const path = require("path");
+const pkg = require("./package.json");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, "src/index.js"),
-  },
+  entry: path.resolve(__dirname, "src/index.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
+    filename: "index.js",
+    library: pkg.name,
+    libraryTarget: "commonjs2",
   },
   module: {
     rules: [
@@ -23,4 +25,6 @@ module.exports = {
       },
     ],
   },
+  target: "node",
+  externals: [nodeExternals()],
 };
