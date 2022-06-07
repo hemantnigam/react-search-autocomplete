@@ -1,11 +1,13 @@
 {
   "name": "@hemantnigam/react-search-autocomplete",
-  "version": "1.0.14",
+  "version": "1.0.18",
   "description": "React search autocomplete is a react package having more search feature and easily customizable.",
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js",
+    "dev:demo": "webpack serve --config webpack.dev.js",
+    "build:demo": "webpack --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -22,13 +24,12 @@
   "author": "Hemant Nigam <h.nigam654@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hemantnigam/react-autocomplete/issues"
+    "url": "https://github.com/hemantnigam/react-search-autocomplete/issues"
   },
-  "homepage": "https://github.com/hemantnigam/react-autocomplete#readme",
+  "homepage": "https://github.com/hemantnigam/react-search-autocomplete#readme",
   "dependencies": {
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "webpack-node-externals": "^3.0.0"
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
@@ -41,6 +42,7 @@
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.2"
   }
 }
