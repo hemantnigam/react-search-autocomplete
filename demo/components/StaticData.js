@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactSearchAutocomplete } from "@hemantnigam/react-search-autocomplete";
+import {ReactSearchAutocomplete} from "../../src";
 
 function StaticData() {
   const constantDataOptions = {
