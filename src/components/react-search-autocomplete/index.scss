@@ -1,0 +1,28 @@
+.react-autocomplete-default {
+  &__input-field {
+    border: 1px solid rgba(128, 128, 128, 0.453);
+    box-sizing: border-box;
+    width: 100%;
+    text-indent: 10px;
+    &:focus-visible {
+      outline: unset;
+    }
+  }
+  &__list {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
+    li {
+      padding: 5px  10px;
+      cursor: pointer;
+      box-sizing: border-box;
+      border-left: 1px solid rgba(128, 128, 128, 0.453);
+      border-right: 1px solid rgba(128, 128, 128, 0.453);
+      border-bottom: 1px solid rgba(128, 128, 128, 0.453);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

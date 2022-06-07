@@ -15,6 +15,8 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
 ```
 	{
 	  "data": {
+      "placeholder": "string" //default is Select
+      "searchCount": 'number' //default is 5
 	    "schema": { //model of actual data
 	      "id": "string", //id label of data object
 	      "text": "string" //search text label of data object

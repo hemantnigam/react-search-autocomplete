@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "demo/dist"),
     filename: "index.js",
   },
+  devtool: 'inline-source-map',
   devServer: {
     port: "3000",
     hot: true,
