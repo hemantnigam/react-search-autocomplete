@@ -45,6 +45,8 @@ function StaticData() {
                 searchCriteria: 'startsWith'
               }
             }
+
+            
             <ReactSearchAutocomplete options=options />
             `}
       </pre>

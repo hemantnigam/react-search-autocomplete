@@ -4,12 +4,15 @@
   justify-content: center;
   .app {
     min-height: 100vh;
-    width: 500px;
     display: flex;
     justify-content: center;
+    .static-data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   pre {
     background-color: #80808021;
-    padding: 20px;
   }
 }
