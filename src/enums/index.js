@@ -11,4 +11,5 @@ export const TARGETS = {
   REACT_SEARCH_AUTOCOMPLETE: "react-search-autocomplete",
   SEARCH_INPUT_FIELD: "search-input-field",
   SEARCH_LIST: "search-list",
+  NO_RESULT: 'no-result'
 };

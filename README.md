@@ -20,16 +20,17 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
 ### Available options
 ```
 {
-	"data": {
-	"placeholder": "string" //default is Select
-	"searchCount": 'number' //default is 5
-	"schema": { //model of actual data
-		"id": "string", //id label of data object
-		"text": "string" //search text label of data object
-	},
-	"content": "array" //contains the data like [{}{}{}...]
-	"searchCriteria": "startsWith" | "includes"
-	}
+  "data": {
+  "placeholder": "string" //default is Select
+  "debounceDelay": "number" //delay after input
+  "searchCount": 'number' //default is 5
+  "schema": { //model of actual data
+    "id": "string", //id label of data object
+    "text": "string" //search text label of data object
+  },
+  "content": "array" //contains the data like [{}{}{}...]
+  "searchCriteria": "startsWith" | "includes"
+  }
 }
 ```
 
