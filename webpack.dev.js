@@ -2,15 +2,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: path.resolve(__dirname, "demo/index.js"),
   output: {
     path: path.resolve(__dirname, "demo/dist"),
     filename: "index.js",
   },
   devServer: {
-    port: '3000',
-    hot: true
+    port: "3000",
+    hot: true,
+    open: true,
   },
   module: {
     rules: [
@@ -20,8 +21,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
         },
       },
       {
@@ -32,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Search Autocomplete',
+      title: "React Search Autocomplete",
       filename: "index.html",
       template: path.resolve(__dirname, "demo/index.html"),
     }),
