@@ -134,6 +134,7 @@ function StaticData() {
             options: {
               placeholder: 'Select Value',
               searchCount: 3,
+              debounceDelay: 500,
               data: {
                 schema: {
                   key: 'id',
