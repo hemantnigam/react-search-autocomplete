@@ -1,0 +1,15 @@
+#root {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  .app {
+    min-height: 100vh;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  pre {
+    background-color: #80808021;
+    padding: 20px;
+  }
+}

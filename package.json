@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev:demo": "cd demo && npm run dev",
+    "build:demo": "cd demo && npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,13 +24,12 @@
   "author": "Hemant Nigam <h.nigam654@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hemantnigam/react-autocomplete/issues"
+    "url": "https://github.com/hemantnigam/react-search-autocomplete/issues"
   },
-  "homepage": "https://github.com/hemantnigam/react-autocomplete#readme",
+  "homepage": "https://github.com/hemantnigam/react-search-autocomplete#readme",
   "dependencies": {
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "webpack-node-externals": "^3.0.0"
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
