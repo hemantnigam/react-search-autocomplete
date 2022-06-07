@@ -4,7 +4,9 @@ module.exports = {
   entry: path.resolve(__dirname, "src/index.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.js"
+    filename: "index.js",
+    library: "@hemantnigam/react-search-autocomplete",
+    libraryTarget: "umd",
   },
   module: {
     rules: [
@@ -21,7 +23,10 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: [".jsx", ".js"],
+  },
   externals: {
     react: "react",
-  }
+  },
 };
