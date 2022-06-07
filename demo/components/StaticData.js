@@ -5,6 +5,7 @@ function StaticData() {
   const constantDataOptions = {
     placeholder: "Select Value",
     searchCount: 3,
+    debounceDelay: 500,
     data: {
       schema: {
         key: "id",
@@ -155,8 +156,8 @@ function StaticData() {
             
             <ReactSearchAutocomplete
               options={constantDataOptions}
-              onSelection={(...args) => handleSelection(...args)}
-              onInput={(...args) => handleInput(...args)}
+              onSelection={onSelection}
+              onInput={onInput}
             />
             `}
       </pre>
