@@ -2,10 +2,11 @@ import React from "react";
 import ReactSearchAutocomplete from "../../src/components/react-search-autocomplete";
 import CommonLayout from "./CommonLayout";
 
-function StaticData() {
+function StaticDataWithDebounce() {
   const constantDataOptions = {
     placeholder: "Select Value",
     searchCount: 3,
+    debounceDelay: 1000,
     data: {
       schema: {
         key: "id",
@@ -118,12 +119,21 @@ function StaticData() {
     },
   };
 
-  const heading = "Static Data";
+  const handleSelection = (...args) => {
+    console.log(args);
+  };
+
+  const handleInput = (...args) => {
+    console.log(args);
+  };
+
+  const heading = "Static Data with debounce"
 
   const code = `
   options: {
     placeholder: 'Select Value',
     searchCount: 3,
+    debounceDelay: 1000,
     data: {
       schema: {
         key: 'id',
@@ -149,15 +159,7 @@ function StaticData() {
     onSelection={onSelection}
     onInput={onInput}
   />
-  `;
-
-  const handleSelection = (...args) => {
-    console.log(args);
-  };
-
-  const handleInput = (...args) => {
-    console.log(args);
-  };
+  `
 
   return (
     <div className="container">
@@ -172,4 +174,4 @@ function StaticData() {
   );
 }
 
-export default StaticData;
+export default StaticDataWithDebounce;

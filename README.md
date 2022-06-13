@@ -20,16 +20,55 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
 ### Available options
 ```
 {
-  "data": {
-  "placeholder": "string" //default is Select
-  "debounceDelay": "number" //delay after input
-  "searchCount": 'number' //default is 5
-  "schema": { //model of actual data
-    "id": "string", //id label of data object
-    "text": "string" //search text label of data object
+  "classNames": { //custom classnames for search component
+    "search": "string",
+    "input": "string",
+    "list": "string",
+    "listItem": "string",
   },
-  "content": "array" //contains the data like [{}{}{}...]
-  "searchCriteria": "startsWith" | "includes"
+  "style": {  //custom style for search components
+    "width": "number" | "string", //default is 300px
+    "height": "number" | "string", //default is 35px
+    "fontSize": "number" | "string",
+    "fontWeight": "number" | "string",
+    "fontFamily": "number" | "string",
+    "margin": "number" | "string",
+    "marginTop": "number" | "string",
+    "marginBottom": "number" | "string",
+    "marginLeft": "number" | "string",
+    "marginRight": "number" | "string",
+    "input": {
+      "textIndent": "number" | "string",
+      "padding": "number" | "string",
+      "paddingTop": "number" | "string",
+      "paddingBottom": "number" | "string",
+      "paddingLeft": "number" | "string",
+      "paddingRight": "number" | "string",
+    },
+    "listItem": {
+      "height": "number" | "string",
+      "padding": "number" | "string",
+      "paddingTop": "number" | "string",
+      "paddingBottom": "number" | "string",
+      "paddingLeft": "number" | "string",
+      "paddingRight": "number" | "string",
+      "margin": "number" | "string",
+      "marginTop": "number" | "string",
+      "marginBottom": "number" | "string",
+      "marginLeft": "number" | "string",
+      "marginRight": "number" | "string",
+    },
+  },
+  "placeholder": "string" //default is Select
+  "searchCount": 'number' //default is 5
+  "debounceDelay": "number" //delay after input
+  "data": {
+    "schema": { //model of actual data
+      "id": "string", //id label of data object
+      "text": "string" //search text label of data object
+    },
+    "content": "array" //contains the data like [{}{}{}...]
+    "searchCriteria": "startsWith" | "includes"
   }
 }
 ```

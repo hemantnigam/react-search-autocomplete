@@ -1,18 +1,64 @@
-#root {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  .app {
-    min-height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  #root {
     display: flex;
     justify-content: center;
-    .static-data {
+    font-family: 'Nunito Sans', sans-serif;
+    .app {
+      min-height: 100vh;
+      width: 100%;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      flex-direction: column;
+      background-color: #dcdcdc47;
+      header {
+        width: 100%;
+        text-align: center;
+        color: white;
+        background-color: #0d4c61;
+        position: sticky;
+        top: 0;
+      }
+      .container {
+        display: flex;
+        .static-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .react-search {
+          margin-top: 72px;
+          margin-left: 50px;
+        }
+        .css-block {
+          margin-top: 72px;
+          margin-left: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          textarea {
+            border-radius: 0px;
+            height: 300px;
+            width: 300px;
+            margin-bottom: 10px;
+          }
+          button {
+            display: block;
+            border: 0px;
+            background-color: #0d4c61;
+            color: white;
+            height: 30px;
+            width: 100px;
+            margin-bottom: 30px;
+            cursor: pointer;
+          }
+        }
+      }
     }
-  }
-  pre {
-    background-color: #80808021;
+    pre {
+      background-color: #80808021;
+      width: 550px;
+    }
   }
 }
