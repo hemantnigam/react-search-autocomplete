@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 import { TARGETS, TYPES } from "../../enums";
 import { reducer } from "../../reducer";
 import { initialState } from "../../state";
@@ -8,8 +8,17 @@ import ReactSearchList from "../react-search-list";
 import "./index.scss";
 
 function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
+  const inputRef = useRef()
   const { data, style, classNames } = options;
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const { value } = options;
+
+    if (value) {
+      inputRef.current.value = value
+    }
+  }, []);
 
   useEffect(() => {
     if (data) {
@@ -25,8 +34,24 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
               state.searchText.toLowerCase()
             )
           ) {
+            const index = searchDescriptionText
+              .toLowerCase()
+              .indexOf(state.searchText.toLowerCase());
+            const left = `<span>${searchItem[text].substring(
+              0,
+              index
+            )}</span>`;
+            const middle = `<b>${searchItem[text].substring(
+              index,
+              index + state.searchText.length
+            )}</b>`;
+            const right = `<span>${searchItem[text].substring(
+              index + state.searchText.length
+            )}</span>`;
+
             const item = {
               key: searchItem[key],
+              renderValue: left + middle + right,
               value: searchItem[text],
             };
             searchList.push(item);
@@ -45,9 +70,9 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
 
     if (style) {
       let { input, height, listItem } = style;
-      if(height) {
-        input = {...input, height}
-        listItem = {...listItem, height}
+      if (height) {
+        input = { ...input, height };
+        listItem = { ...listItem, height };
       }
       dispatch({
         type: TYPES.SEARCH_STYLE,
@@ -64,7 +89,7 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
       if (listItem) {
         dispatch({
           type: TYPES.LIST_ITEM_STYLE,
-          payload: getListItemStyle(style ,listItem),
+          payload: getListItemStyle(style, listItem),
         });
       }
     }
@@ -110,6 +135,12 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
     }
   };
 
+  const onFieldSelection = (...args) => {
+    inputRef.current.value = args[1].value
+    if(onSelection)
+      onSelection(...args)
+  }
+
   return (
     <div
       id={TARGETS.REACT_SEARCH_AUTOCOMPLETE}
@@ -120,10 +151,12 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
     >
       <ReactSearchInput
         options={options}
+        ref={inputRef}
         dispatch={dispatch}
         style={state.inputStyle}
         onInput={onInput}
         className={state.inputClass}
+        value={state.textValue}
       />
       <ReactSearchList
         options={options}
@@ -132,7 +165,7 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
         searchText={state.searchText}
         searchData={state.searchData}
         showList={state.showList}
-        onSelection={onSelection}
+        onSelection={onFieldSelection}
         className={state.listClass}
         itemClassName={state.listItemClass}
       />

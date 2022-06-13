@@ -1,13 +1,13 @@
 import React from "react";
 import ReactSearchAutocomplete from "../../src/components/react-search-autocomplete";
-import CommonLayout from "./CommonLayout";
 import { content } from "../constant";
+import CommonLayout from "./CommonLayout";
 
-function StaticDataWithDebounce() {
+function StaticDataWithHighlightSearch() {
   const constantDataOptions = {
     placeholder: "Select Value",
+    highlightSearch: true,
     searchCount: 3,
-    debounceDelay: 1000,
     data: {
       schema: {
         key: "id",
@@ -18,21 +18,13 @@ function StaticDataWithDebounce() {
     },
   };
 
-  const handleSelection = (...args) => {
-    console.log(args);
-  };
-
-  const handleInput = (...args) => {
-    console.log(args);
-  };
-
-  const heading = "Static Data with debounce"
+  const heading = "Search with highlight text";
 
   const code = `
   options: {
     placeholder: 'Select Value',
     searchCount: 3,
-    debounceDelay: 1000,
+    highlightSearch: true,
     data: {
       schema: {
         key: 'id',
@@ -55,22 +47,19 @@ function StaticDataWithDebounce() {
   
   <ReactSearchAutocomplete
     options={constantDataOptions}
-    onSelection={onSelection}
-    onInput={onInput}
   />
-  `
+  `;
+
 
   return (
     <div className="container">
-      <CommonLayout heading={heading} code={code}/>
+      <CommonLayout heading={heading} code={code} />
       <ReactSearchAutocomplete
         className="react-search"
         options={constantDataOptions}
-        onSelection={(...args) => handleSelection(...args)}
-        onInput={(...args) => handleInput(...args)}
       />
     </div>
   );
 }
 
-export default StaticDataWithDebounce;
+export default StaticDataWithHighlightSearch;

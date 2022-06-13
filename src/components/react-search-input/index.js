@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { DEFAULT_CONFIG, TARGETS, TYPES } from "../../enums";
 
-function ReactSearchInput({ className, options, style, dispatch, onInput }) {
+const ReactSearchInput = ({ value, className, options, style, dispatch, onInput }, ref) => {
   const placeholder = options.hasOwnProperty("placeholder")
     ? options.placeholder
     : DEFAULT_CONFIG.placeholder;
@@ -17,6 +17,8 @@ function ReactSearchInput({ className, options, style, dispatch, onInput }) {
   };
 
   const handleInput = (e) => {
+    ref.current.value = e.target.value
+
     if (e.target.value) {
       dispatch({
         type: TYPES.SHOW_LIST,
@@ -49,6 +51,7 @@ function ReactSearchInput({ className, options, style, dispatch, onInput }) {
       <input
         className={`react-autocomplete-default__input-field ${className || ""}`}
         id={TARGETS.SEARCH_INPUT_FIELD}
+        ref={ref}
         type="text"
         placeholder={placeholder}
         style={style}
@@ -58,4 +61,4 @@ function ReactSearchInput({ className, options, style, dispatch, onInput }) {
   );
 }
 
-export default ReactSearchInput;
+export default React.forwardRef(ReactSearchInput);

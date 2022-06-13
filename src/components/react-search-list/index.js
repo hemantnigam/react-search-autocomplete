@@ -13,9 +13,10 @@ function ReactSearchList({
   onSelection,
 }) {
   const searchCount = options?.searchCount || DEFAULT_CONFIG.searchCount;
-
+  const { highlightSearch } = options;
   const handleListSelection = (e, value) => {
     if (onSelection) onSelection(e, { value });
+
     dispatch({
       type: TYPES.SHOW_LIST,
       payload: false,
@@ -31,16 +32,26 @@ function ReactSearchList({
           }`}
           id={TARGETS.SEARCH_LIST}
         >
-          {searchData.slice(0, searchCount).map(({ key, value }) => (
-            <li
-              className={`search-list-item ${itemClassName || ""}`}
-              style={style}
-              onClick={(e) => handleListSelection(e, value)}
-              key={key}
-            >
-              {value}
-            </li>
-          ))}
+          {searchData.slice(0, searchCount).map(({ key, renderValue, value }) =>
+            highlightSearch ? (
+              <li
+                className={`search-list-item ${itemClassName || ""}`}
+                style={style}
+                key={key}
+                dangerouslySetInnerHTML={{ __html: renderValue }}
+                onClick={(e) => handleListSelection(e, value)}
+              />
+            ) : (
+              <li
+                className={`search-list-item ${itemClassName || ""}`}
+                style={style}
+                key={key}
+                onClick={(e) => handleListSelection(e, value)}
+              >
+                {value}
+              </li>
+            )
+          )}
         </ul>
       )}
       {searchData.length === 0 && showList && (
