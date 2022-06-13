@@ -62,6 +62,7 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
   "placeholder": "string" //default is Select
   "searchCount": 'number' //default is 5
   "debounceDelay": "number" //delay after input
+  "highlightSearch": "boolean" //if search result should highlight the searched text
   "data": {
     "schema": { //model of actual data
       "id": "string", //id label of data object

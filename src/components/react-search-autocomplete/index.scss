@@ -1,4 +1,5 @@
 .react-autocomplete-default {
+  position: relative;
   &__input-field {
     border: 1px solid rgba(128, 128, 128, 0.453);
     box-sizing: border-box;
@@ -13,6 +14,8 @@
     margin: 0px;
     list-style: none;
     width: 100%;
+    position: absolute;
+    background-color: white;
     li {
       padding: 5px  10px;
       cursor: pointer;

@@ -3,6 +3,7 @@ import "./style.scss";
 import StaticData from "./components/StaticData";
 import StaticDataWithDebounce from "./components/StaticDataWithDebounce";
 import StaticDataWithCustomCSS from "./components/StaticDataWithCustomCSS";
+import StaticDataWithHighlightSearch from "./components/StaticDataWithHighlightSearch";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <StaticData />
         <StaticDataWithDebounce />
         <StaticDataWithCustomCSS />
+        <StaticDataWithHighlightSearch />
       </main>
     </div>
   );
