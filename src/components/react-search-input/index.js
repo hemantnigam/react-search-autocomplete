@@ -46,6 +46,10 @@ const ReactSearchInput = ({ value, className, options, style, dispatch, onInput 
     return handleInput;
   }, []);
 
+  const clearText = () => {
+    ref.current.value = ''
+  }
+
   return (
     <>
       <input
@@ -57,6 +61,10 @@ const ReactSearchInput = ({ value, className, options, style, dispatch, onInput 
         style={style}
         onInput={debouncedEvent}
       />
+      <div className="clear-btn" onClick={clearText}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+      </div>
     </>
   );
 }

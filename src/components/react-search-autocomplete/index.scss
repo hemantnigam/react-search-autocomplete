@@ -9,6 +9,27 @@
       outline: unset;
     }
   }
+  .clear-btn {
+    height: 100%;
+    width: 2px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 25%;
+    right: 20px;
+    cursor: pointer;
+    .line1, .line2 {
+      height: 50%;
+      width: 2px;
+      background-color: gray;
+    }
+    .line1 {
+      transform: rotate(45deg);
+    }
+    .line2 {
+      transform: rotate(-45deg);
+    }
+  }
   &__list {
     padding: 0px;
     margin: 0px;
