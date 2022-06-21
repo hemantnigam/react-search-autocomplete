@@ -51,8 +51,7 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
       if (task) {
         async function fetchData() {
           try {
-            const response = await task;
-            const data = await response.json();
+            const data = await task;
             dispatch({
               type: TYPES.TASK_DATA,
               payload: serializer ? serializer(data) : data,
