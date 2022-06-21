@@ -3,6 +3,12 @@ import ReactSearchAutocomplete from "../../src/components/react-search-autocompl
 import CommonLayout from "./CommonLayout";
 
 function PromiseData() {
+  
+  async function getTask() {
+    const resposne = await fetch('https://jsonplaceholder.typicode.com/posts')
+    return resposne.json()
+  }
+
   const constantDataOptions = {
     placeholder: "Select Value",
     highlightSearch: true,
@@ -12,13 +18,12 @@ function PromiseData() {
         key: "id",
         text: "title",
       },
-      task: fetch("https://jsonplaceholder.typicode.com/posts"),
+      task: getTask(),
       searchCriteria: "startsWith",
     },
   };
 
   const heading = "Search with promise data";
-
   const code = `
   options: {
     placeholder: 'Select Value',
@@ -29,7 +34,7 @@ function PromiseData() {
         key: 'id',
         text: 'title'
       },
-      task: fetch('https://jsonplaceholder.typicode.com/posts'),
+      task: responseTask, //promise which return data when resolved
       searchCriteria: 'startsWith'
     }
   }
