@@ -1,1 +1,6 @@
-export { ReactSearchAutocomplete as default } from "./components/react-search-autocomplete";
+import ReactSearchAutocomplete from "./components/react-search-autocomplete";
+export {
+  ReactSearchAutocomplete
+}
+
+export default ReactSearchAutocomplete
