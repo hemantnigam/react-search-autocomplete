@@ -12,7 +12,11 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
 
 ###### Step 1: Install @hemantnigam/react-search-autocomplete using `npm i @hemantnigam/react-search-autocomplete`
 ###### Step 2: import dependency in the component using
-```import { ReactSearchAutocomplete } from "@hemantnigam/react-search-autocomplete";```
+```
+    import ReactSearchAutocomplete from "@hemantnigam/react-search-autocomplete";
+                                    or
+    import { ReactSearchAutocomplete } from "@hemantnigam/react-search-autocomplete";
+```
 
 ###### Step 3: Add it into the JSX using
 ```<ReactSearchAutocomplete options=options />```
