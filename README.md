@@ -75,5 +75,7 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
   }
 }
 ```
+### Support
+React v18+
 
 ##### Note: Please feel free to contribute in the project. Thanks
