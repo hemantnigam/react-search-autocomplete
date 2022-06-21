@@ -5,6 +5,7 @@ export const DEFAULT_CONFIG = {
     height: "35px",
     width: "300px",
   },
+  SEARCH_CRITERIA: 'startsWith'
 };
 
 export const TARGETS = {

@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useRef } from "react";
-import { TARGETS, TYPES } from "../../enums";
+import { DEFAULT_CONFIG, TARGETS, TYPES } from "../../enums";
 import { reducer } from "../../reducer";
 import { initialState } from "../../state";
 import { getInputStyle, getListItemStyle, getSearchStyle } from "../../utils";
@@ -15,6 +15,7 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
   const getFilteredData = (data, searchCriteria, key, text) => {
     return data.reduce((searchList, searchItem) => {
       const searchDescriptionText = searchItem[text].toLowerCase();
+      searchCriteria = searchCriteria || DEFAULT_CONFIG.SEARCH_CRITERIA
       if (
         searchDescriptionText &&
         searchDescriptionText[searchCriteria] &&
