@@ -8,15 +8,65 @@ import ReactSearchList from "../react-search-list";
 import "./index.scss";
 
 function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
-  const inputRef = useRef()
+  const inputRef = useRef();
   const { data, style, classNames } = options;
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const getFilteredData = (data, searchCriteria, key, text) => {
+    return data.reduce((searchList, searchItem) => {
+      const searchDescriptionText = searchItem[text].toLowerCase();
+      if (
+        searchDescriptionText &&
+        searchDescriptionText[searchCriteria] &&
+        searchDescriptionText[searchCriteria](state.searchText.toLowerCase())
+      ) {
+        const index = searchDescriptionText
+          .toLowerCase()
+          .indexOf(state.searchText.toLowerCase());
+        const left = `<span>${searchItem[text].substring(0, index)}</span>`;
+        const middle = `<b>${searchItem[text].substring(
+          index,
+          index + state.searchText.length
+        )}</b>`;
+        const right = `<span>${searchItem[text].substring(
+          index + state.searchText.length
+        )}</span>`;
+
+        const item = {
+          key: searchItem[key],
+          renderValue: left + middle + right,
+          value: searchItem[text],
+        };
+        searchList.push(item);
+      }
+      return searchList;
+    }, []);
+  };
+
   useEffect(() => {
     const { value } = options;
+    const { task, serializer } = data;
+
+    if (task && task instanceof Promise && typeof task.then === "function") {
+      if (task) {
+        async function fetchData() {
+          try {
+            const response = await task;
+            const data = await response.json();
+            dispatch({
+              type: TYPES.TASK_DATA,
+              payload: serializer ? serializer(data) : data,
+            });
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        fetchData();
+      }
+    }
 
     if (value) {
-      inputRef.current.value = value
+      inputRef.current.value = value;
     }
   }, []);
 
@@ -24,44 +74,16 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
     if (data) {
       const { schema, content, searchCriteria } = data;
       const { key, text } = schema;
-      if (schema && content && key && text) {
-        const filteredData = content.reduce((searchList, searchItem) => {
-          const searchDescriptionText = searchItem[text].toLowerCase();
-          if (
-            searchDescriptionText &&
-            searchDescriptionText[searchCriteria] &&
-            searchDescriptionText[searchCriteria](
-              state.searchText.toLowerCase()
-            )
-          ) {
-            const index = searchDescriptionText
-              .toLowerCase()
-              .indexOf(state.searchText.toLowerCase());
-            const left = `<span>${searchItem[text].substring(
-              0,
-              index
-            )}</span>`;
-            const middle = `<b>${searchItem[text].substring(
-              index,
-              index + state.searchText.length
-            )}</b>`;
-            const right = `<span>${searchItem[text].substring(
-              index + state.searchText.length
-            )}</span>`;
-
-            const item = {
-              key: searchItem[key],
-              renderValue: left + middle + right,
-              value: searchItem[text],
-            };
-            searchList.push(item);
-          }
-          return searchList;
-        }, []);
-
+      if (schema && key && text) {
+        let data = [];
+        if (content) {
+          data = content;
+        } else if (state.taskData && state.taskData.length > 0) {
+          data = state.taskData;
+        }
         dispatch({
           type: TYPES.SEARCH_DATA,
-          payload: filteredData,
+          payload: getFilteredData(data, searchCriteria, key, text),
         });
       }
 
@@ -136,10 +158,9 @@ function ReactSearchAutocomplete({ className, options, onSelection, onInput }) {
   };
 
   const onFieldSelection = (...args) => {
-    inputRef.current.value = args[1].value
-    if(onSelection)
-      onSelection(...args)
-  }
+    inputRef.current.value = args[1].value;
+    if (onSelection) onSelection(...args);
+  };
 
   return (
     <div

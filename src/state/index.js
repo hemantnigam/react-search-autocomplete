@@ -18,4 +18,5 @@ export const initialState = {
   inputClass: null,
   listClass: null,
   listItemClass: null,
+  taskData: []
 };
