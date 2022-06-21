@@ -22,6 +22,8 @@ export const reducer = (state, action) => {
       return { ...state, inputStyle: action.payload };
     case TYPES.LIST_ITEM_STYLE:
       return { ...state, listItemStyle: action.payload };
+    case TYPES.TASK_DATA:
+      return { ...state, taskData: action.payload };
     default:
       return state;
   }

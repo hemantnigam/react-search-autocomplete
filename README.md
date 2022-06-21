@@ -69,6 +69,8 @@ A `<ReactSearchAutocomplete/>` is fully customizable and feature rich search com
       "text": "string" //search text label of data object
     },
     "content": "array" //contains the data like [{}{}{}...]
+    "task": "promise" // promise that will return data from server
+    "serializer": "function" //function to modify response data
     "searchCriteria": "startsWith" | "includes"
   }
 }
